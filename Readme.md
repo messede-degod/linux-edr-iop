@@ -5,6 +5,7 @@ This is a community effort PRs are encouraged and welcome.
 
 THCs [hackshell](https://github.com/hackerschoice/hackshell) uses IOPs from this repo and provides a easy way to check for the presense of EDRs on a given system.
 
+Files without absolute paths should be checked in all directories present within $PATH
 
 | vendor  | files  | systemd service name  |
 |---|---|---|
@@ -30,7 +31,7 @@ THCs [hackshell](https://github.com/hackerschoice/hackshell) uses IOPs from this
 | Webroot Endpoint Protection  | [No Linux Support] | [No Linux Support] |
 | ESET Endpoint Security      |  | eraagent |
 | ESET AV      |  | eea, eea-user-agent |
-| Rapid7 ISIGNT IDR  |  | ir_agent |
+| Rapid7 INSIGHT IDR  |  | ir_agent |
 | Rapid7 NG AV  |  | armor |
 | WithSecure (F-Secure ) Elements Agent | /opt/f-secure/linuxsecurity/bin/activate, /bin/scand |  f-secure-linuxsecurity-activate, emit_scand_service |
 | WithSecure (F-Secure ) Elements Connector (for Countercept)| /opt/f-secure/fspms/fspms.conf, /etc/opt/f-secure/fspm/fspms.conf |  |
