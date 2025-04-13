@@ -7,13 +7,14 @@ THCs [hackshell](https://github.com/hackerschoice/hackshell) uses IOPs from this
 
 Files without absolute paths should be checked in all directories present within $PATH
 
-| vendor  | files  | systemd service name  |
-|---|---|---|
-| wazuh  |   | wazuh-agent|
-| ossec  | /etc/rc.d/init.d/ossec  |   |
-| osquery  | osqueryi  |  osqueryd |
-| MS defender  | mdatp  | mdatp  |
-| CrowdStrike  |   |  falcon-sensor |
+| vendor  | files  | systemd service name  | website |
+|---|---|---|---|
+| falco  |   | falco, falco-bpf, falco-custom, falco-kmod| https://falco.org/ |
+| wazuh  |   | wazuh-agent| https://wazuh.com/ |
+| ossec  | /etc/rc.d/init.d/ossec  |   | https://www.ossec.net/ |
+| osquery  | osqueryi  |  osqueryd | https://www.osquery.io/ |
+| MS defender  | mdatp  | mdatp  | https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-endpoint |
+| CrowdStrike  |   |  falcon-sensor | https://www.crowdstrike.com/platform/endpoint-security/ |
 | CarbonBlack  |   | cbsensor |
 | McAfee  |   |  MFEcma |
 | Trend Micro  |   |  ds_agent |
