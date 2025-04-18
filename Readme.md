@@ -1,7 +1,7 @@
 ## Linux-EDR-IOP
 This repo tracks "indicators of presence" for linux EDRs, AVs and Monitoring Tools.
 
-This is a community effort PRs are encouraged and welcome. 
+This is a community effort, PRs are encouraged and welcome. 
 
 THCs [hackshell](https://github.com/hackerschoice/hackshell) uses IOPs from this repo and provides a easy way to check for the presense of EDRs on a given system.
 
@@ -15,12 +15,12 @@ Files without absolute paths should be checked in all directories present within
 | osquery  | osqueryi  |  osqueryd | https://www.osquery.io/ |
 | MS defender  | mdatp  | mdatp  | https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-endpoint |
 | CrowdStrike  |   |  falcon-sensor | https://www.crowdstrike.com/platform/endpoint-security/ |
-| CarbonBlack  |   | cbsensor |
-| McAfee  |   |  MFEcma |
-| Trend Micro  |   |  ds_agent |
-| Blackberry  cyPROTECT |  cylance  | cylancesvc |
-| Blackberry  cyOPTICS |    | cyoptics |
-| SentinelOne  |  /opt/sentinelone/bin/sentinelctl  |  |
+| CarbonBlack  |   | cbsensor | https://www.broadcom.com/products/carbon-black/threat-detection-and-response/endpoint-detection-and-response |
+| McAfee  |   |  MFEcma | 
+| Trend Micro  |   |  ds_agent | https://help.deepsecurity.trendmicro.com/20_0/on-premise/agent-install.html# |
+| Blackberry  cyPROTECT |  cylance  | cylancesvc | https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues/setup/setup/Setting-up-BlackBerry-Protect-Desktop/Install_the_Protect_Desktop_agent_for_Linux |
+| Blackberry  cyOPTICS |    | cyoptics | https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues/setup/setup/Steps-to-set-up-BlackBerry-Optics/Install-the-BlackBerry-Optics-agent-on-endpoint-devices |
+| SentinelOne  |  /opt/sentinelone/bin/sentinelctl  |  | https://www.sentinelone.com/ |
 | Sophos Intercept X  |    | sophoslinuxsensor |
 | Sophos SPL  |    | sophos-spl |
 | Palo Alto Networks Cortex XDR  |  /opt/traps/bin/cytool  | traps_pmd |
@@ -47,7 +47,7 @@ Files without absolute paths should be checked in all directories present within
 | TrendMicro - Deep Instinct    | /etc/init.d/ds_agent, /opt/ds_agent/dsa | ds_agent |
 | TrendMicro - Server Protect   | /etc/init.d/splx,  /opt/TrendMicro/SProtectLinux/SPLX.util/add_splx_service |  |
 | ThreatConnect              | /opt/threatconnect-envsvr/threatconnect-envsvr.jar, /etc/init.d/threatconnect-envsvr |  |
-| Filebeat (not AV/EDR, but used to ship logs)| | /etc/filebeat/filebeat.yml| filebeat|
+| Filebeat (not AV/EDR, but used to ship logs)| /etc/filebeat/filebeat.yml| filebeat| |
 | Secureworks Taegis   EDR     | /opt/secureworks/taegis-agent/bin/taegisctl |  |
 | Secureworks redcloak AV  | /opt/secureworks/redcloak/bin/redcloak_start.sh |  |
 | Secureworks NGAV | /usr/bin/secureworks/taegis-ngav (directory) | |
@@ -74,7 +74,6 @@ Files without absolute paths should be checked in all directories present within
 | Comodo Client Security  | | itsm |
 | Avast                      | /etc/init.d/avast, /var/lib/avast/Setup/avast.vpsupdate | avast |
 | AVG                        | /etc/init.d/avgd, /opt/avg/av/bin/avgsetup |  |
-| Verdasys/Digital Guardian  | ?? | ?? |
 | Tanium                     | /opt/Tanium/TaniumClient/TaniumClient | taniumclient |
 | CyberArk                  | /opt/cyberark/epm/bin/epmcli, /opt/cyberark/epm/sbin/epmd | epmd |
 | PT Swarm | /var/pt/ptaf-deploy/current/install.sh,  /var/pt/tmp/ptaf-deploy/install.sh, /var/pt/infra/current/deploy.sh |  |
@@ -85,3 +84,4 @@ Files without absolute paths should be checked in all directories present within
 | Raytheon Cyber            | ?? | ?? |
 | DeepInstinct               | ?? | ?? |
 | Cynet 360                 | ?? | ?? |
+| Verdasys/Digital Guardian  | ?? | ?? |
