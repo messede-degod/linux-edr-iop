@@ -19,6 +19,8 @@ Entries are grouped by category below. Categories are a convenience for triage, 
 - [SIEM, log shippers & telemetry collectors](#siem-log-shippers--telemetry-collectors)
 - [Monitoring & observability agents](#monitoring--observability-agents)
 - [Endpoint management, RMM & software deployment](#endpoint-management-rmm--software-deployment)
+- [Remote access & remote support agents](#remote-access--remote-support-agents)
+- [Configuration management & Linux fleet management](#configuration-management--linux-fleet-management)
 - [Vulnerability management, live patching & compliance](#vulnerability-management-live-patching--compliance)
 - [Cloud provider management & monitoring agents](#cloud-provider-management--monitoring-agents)
 - [Identity, PAM & privileged access](#identity-pam--privileged-access)
@@ -78,7 +80,7 @@ Entries are grouped by category below. Categories are a convenience for triage, 
 | Symantec EDR | /opt/Symantec/sdcssagent/AMD/system/AntiMalware.ini, /etc/init.d/sisamdagent, /opt/Symantec/symantec_antivirus/uninstall.sh, /usr/lib/symantec/status.sh | sisamdagent, sisidsagent, sisipsagent, cafagent | https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-protection/all/symantec-single-agent-for-linux-guide/installing-the-client-for-linux-v95193124-d21e2986.html |
 | Symantec Linux Agent | /usr/lib/symantec/status.sh | | https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Installing-the-Symantec-Agent-and-enrolling-devices/creating-and-installing-a-symantec-linux-agent-ins-v133371951-d4155e8363.html |
 | Comodo AV | /opt/COMODO/post_setup.sh | | https://help.comodo.com/topic-167-1-330-4246-.html |
-| Xcitium Client Security (formerly Comodo Client Security) | | itsm | https://help.comodo.com/topic-463-1-1037-16070-Install-Xcitium-Client---Security-for-Linux.html |
+| Xcitium Client Security (formerly Comodo Client Security) | /opt/COMODO/ (shared with the Endpoint Manager Communication Client) | ?? (the itsm service belongs to the Endpoint Manager Communication Client - see RMM section) | https://help.comodo.com/topic-463-1-1037-16070-Install-Xcitium-Client---Security-for-Linux.html |
 | Avast | /etc/init.d/avast, /etc/avast/, /var/lib/avast/Setup/avast.vpsupdate | avast, avast.target | https://businesshelp.avast.com/Content/Products/AfB_Antivirus/Linux/InstallingAvastBusinessAntivirusLinux.htm |
 | AVG | /etc/init.d/avgd, /opt/avg/av/bin/avgsetup | | https://web.archive.org/web/20150522133834/http://aa-download.avg.com/filedir/doc/AVG_Anti-Virus_for_Linux/avg_alb_uma_en_2011_1.pdf |
 | Positive Technologies MaxPatrol EDR / PT XDR | ?? | ?? | https://help.ptsecurity.com/en-US/projects/edr/5.1/help/3135367435 |
@@ -259,9 +261,51 @@ Common on shared-hosting and control-panel servers; several of these hook Apache
 | Atera | /usr/lib/atera-agent/, /etc/atera-agent/, /var/spool/atera-agent/, /var/log/atera-agent/, /etc/systemd/system/AteraAgent.service | AteraAgent | https://support.atera.com/hc/en-us/articles/6266534935580-Install-Atera-s-Linux-Agent |
 | Datto RMM (formerly CentraStage) | /usr/local/share/CentraStage/ (RHEL family), /opt/CentraStage/ (Debian family) | CagService | https://rmm.datto.com/help/en/Content/3NEWUI/Devices/AddADevice/InstallLinux.htm |
 | ConnectWise Automate (formerly LabTech) | /usr/local/ltechagent/, /usr/local/ltechagent/ltechagent | ltechagent | https://docs.connectwise.com/ConnectWise_Automate |
-| ConnectWise ScreenConnect access agent (formerly ConnectWise Control) | /opt/connectwisecontrol-<instance-id>/, /opt/screenconnect-<instance-id>/ | screenconnect-<instance-id> | https://docs.connectwise.com/ScreenConnect_Documentation/Get_started/Remote_access_guide/Install_an_access_agent |
+| ConnectWise ScreenConnect access agent (formerly ConnectWise Control) | /opt/connectwisecontrol-\<instance-id\>/, /opt/screenconnect-\<instance-id\>/ | screenconnect-\<instance-id\> | https://docs.connectwise.com/ScreenConnect_Documentation/Get_started/Remote_access_guide/Install_an_access_agent |
 | SolarWinds Platform Agent (swiagent) | /opt/SolarWinds/Agent/, /opt/SolarWinds/Agent/bin/swiagentd, /opt/SolarWinds/Agent/bin/swiagentaid.sh | swiagentd | https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-deploy-a-linux-agent-manually.htm |
 | Pulseway | /usr/sbin/pulsewayd, /etc/pulseway/config.xml, /etc/systemd/system/pulseway.service | pulseway | https://intercom.help/pulseway/en/articles/2971801-how-to-install-and-configure-pulseway-linux-agent-on-ubuntu-os |
+| Scalefusion (Linux agent, package tux-agent) | /var/log/tux-agent/ (install dir and binary ??) | ?? | https://help.scalefusion.com/docs/enrolling-linux-devices |
+| Syncro | syncro (CLI, path ??) | syncro | https://docs.syncrosecure.com/agents-alerts-automations/work-with-the-syncro-linux-agent |
+| Kaseya VSA 10 / VSA X | /usr/sbin/vsax-registration, /etc/vsax/config.xml | vsax | https://help.vsa10.kaseya.com/help/Content/1-Modules/devices/deploy-linux.htm |
+| Kaseya VSA 9 (legacy agent) | /opt/Kaseya/\<agent-instance-guid\>/, /opt/Kaseya/\<agent-instance-guid\>/bin/KcsUninstaller, /etc/init.d/kagent* | (SysV init script, kagent*) | https://help.vsa9.kaseya.com/help/Content/VSA/6908.htm |
+| Action1 | /opt/action1/, /var/opt/action1/, /var/log/action1/ | action1_agent | https://www.action1.com/documentation/agent-installation/adding-endpoints-manually/linux/ |
+| Level | /usr/local/bin/level, /var/lib/level/ | Level (unit file Level.service) | https://docs.level.io/en/articles/9926362-linux-install |
+| SuperOps | /opt/superopsrmm/ (unverified - from a third-party uninstall script) | ?? | https://support.superops.com/en/articles/8355161-managing-linux-os-devices |
+| Xcitium / ITarian Endpoint Manager Communication Client | /opt/COMODO/, /etc/systemd/system/itsm.service, /run/comodo/ | itsm | https://scripts.xcitium.com/frontend/web/topic/uninstall-endpoint-manager-communication-client-in-linux-devices |
+| Tactical RMM | /usr/local/bin/tacticalagent, /opt/tacticalagent/, /etc/tacticalagent, /var/log/tacticalagent.log, /opt/tacticalmesh/meshagent (bundled MeshCentral agent) | tacticalagent, meshagent | https://docs.tacticalrmm.com/install_agent/ |
+| MeshCentral MeshAgent | /usr/local/mesh_services/meshagent/, /usr/local/mesh_services/meshagent/meshagent, /usr/local/mesh_services/meshagent/meshagent.msh, /usr/local/mesh_daemons/ (non-systemd hosts) | meshagent | https://docs.meshcentral.com/meshcentral/agents/ |
+| Microsoft Intune for Linux | /opt/microsoft/intune/bin/intune-portal, /opt/microsoft/intune/bin/intune-agent, /opt/microsoft/intune/bin/intune-daemon, /usr/bin/intune-portal, /run/intune/daemon.socket, /var/lib/intune/, ~/.local/state/intune/, /opt/microsoft/identity-broker/bin/microsoft-identity-broker, /opt/microsoft/identity-broker/bin/microsoft-identity-device-broker | intune-daemon (+ intune-daemon.socket), microsoft-identity-device-broker; user units (systemd --user): intune-agent (+ intune-agent.timer), microsoft-identity-broker (broker 2.x only - 3.x is D-Bus activated) | https://learn.microsoft.com/en-us/intune/user-help/company-portal/intune-app-linux |
+| Omnissa Workspace ONE Intelligent Hub (formerly VMware) | /opt/omnissa/ws1-hub/, /opt/vmware/ws1-hub/ (pre-rebrand), /opt/omnissa/ws1-hub/bin/ws1HubUtil, /usr/bin/ws1HubUtil, /var/log/ws1-hub/ | ?? | https://docs.omnissa.com/bundle/LinuxDeviceManagement/page/Command-lineUtilitiesforWorkspaceONEIntelligentHubonLinux.html |
+| Hexnode UEM | ?? | hexnode_agent | https://www.hexnode.com/mobile-device-management/help/linux-device-enrollment-in-hexnode-uem/ |
+| Ivanti Endpoint Manager (formerly LANDesk; distinct from Ivanti Neurons) | /opt/landesk/, /opt/landesk/etc/landesk.conf, /opt/landesk/log/, /etc/init.d/cba8 (legacy agent), /usr/LANDesk/common/ (legacy 9.x agent) | ?? (legacy: cba8 SysV init script; pds2d runs as user ldnobody) | https://help.ivanti.com/ld/help/en_US/LDMS/11.0/Windows/client-c-linux.htm |
+| Quest KACE SMA agent | /opt/quest/kace/bin/ (AMPAgent, AMPctl, AMPTools, AMPWatchDog, konea), /var/quest/kace/, /var/quest/kace/amp.conf, /var/log/quest/kace/ | konea | https://support-public.cfm.quest.com/80859_KACE_SMA_15.0_AdminGuide_en-US_1.pdf |
+
+### Remote access & remote support agents
+| vendor | files | systemd service name | website |
+|---|---|---|---|
+| TeamViewer (full client & TeamViewer Host) | /opt/teamviewer/, /opt/teamviewer/tv_bin/teamviewerd, /usr/bin/teamviewer, /etc/teamviewer/global.conf, /var/log/teamviewer15/ | teamviewerd | https://www.teamviewer.com/en/global/support/knowledge-base/teamviewer-remote/download-and-installation/linux/ |
+| AnyDesk | /usr/bin/anydesk, /usr/share/anydesk/, /etc/anydesk/system.conf, /etc/anydesk/service.conf, /var/log/anydesk.trace, ~/.anydesk/ | anydesk | https://support.anydesk.com/docs/install-anydesk |
+| RustDesk | /usr/share/rustdesk/rustdesk, /usr/bin/rustdesk, /root/.config/rustdesk/, ~/.config/rustdesk/ | rustdesk | https://rustdesk.com/docs/en/client/linux/ |
+| Splashtop Streamer | /opt/splashtop-streamer/, /opt/splashtop-streamer/SRFeature, /opt/splashtop-streamer/config/global.conf, /usr/bin/splashtop-streamer | SRStreamer | https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360035513772-Download-Splashtop-Streamer-for-Linux |
+| BeyondTrust Remote Support Jump Client (formerly Bomgar) | /opt/beyondtrust/sra-pin-*/ (default service-mode dir), /opt/bomgar/bomgar-pec-*/ (legacy) | ?? | https://docs.beyondtrust.com/rs/docs/deploy-jump-clients |
+| Zoho Assist (unattended agent) | /var/log/ZohoAssist/ (install dir ??; deb package zohoassist) | ?? | https://www.zoho.com/assist/help/unattended-access/linux.html |
+
+### Configuration management & Linux fleet management
+Several of these ship by default on distro images (insights-client and subscription-manager on RHEL, landscape-common on Ubuntu), so an installed package alone does not mean the host is enrolled - check for config/registration files.
+
+| vendor | files | systemd service name | website |
+|---|---|---|---|
+| Canonical Landscape client | /usr/bin/landscape-client, /usr/bin/landscape-config, /etc/landscape/client.conf, /var/lib/landscape/client/, /var/log/landscape/ | landscape-client | https://documentation.ubuntu.com/landscape/ |
+| Red Hat Insights client (now Red Hat Lightspeed) | /usr/bin/insights-client, /etc/insights-client/insights-client.conf, /var/lib/insights/, /var/log/insights-client/ | insights-client (timer), insights-client-boot | https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/ |
+| Red Hat rhc / yggdrasil (remote host configuration) | /usr/bin/rhc, /etc/rhc/, /usr/sbin/rhcd (RHEL 9 and earlier), /usr/bin/yggd, /etc/yggdrasil/config.toml, /usr/libexec/rhc/ (RHEL 10) | rhcd (RHEL 9 and earlier); yggdrasil, rhc-server (RHEL 10) | https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/html/remote_host_configuration_and_management/ |
+| Red Hat Satellite / Katello client | /etc/rhsm/ca/katello-server-ca.pem (Satellite-specific), /etc/rhsm/rhsm.conf, /etc/pki/consumer/, /usr/sbin/katello-package-upload, /usr/sbin/katello-tracer-upload | rhsmcertd; goferd (legacy katello-agent, removed in Satellite 6.15) | https://docs.redhat.com/en/documentation/red_hat_satellite/ |
+| SUSE Multi-Linux Manager / Uyuni (Salt Bundle) | /usr/lib/venv-salt-minion/, /etc/venv-salt-minion/minion, /etc/venv-salt-minion/minion.d/susemanager.conf, /etc/venv-salt-minion/pki/minion/, /var/log/venv-salt-minion.log | venv-salt-minion | https://documentation.suse.com/multi-linux-manager/5.1/en/docs/client-configuration/contact-methods-saltbundle.html |
+| Salt minion | /usr/bin/salt-minion, /opt/saltstack/salt/ (onedir, 3006+), /etc/salt/minion, /etc/salt/minion.d/, /etc/salt/pki/minion/, /var/log/salt/minion | salt-minion | https://docs.saltproject.io/salt/install-guide/en/latest/ |
+| Puppet agent / OpenVox agent | /opt/puppetlabs/puppet/bin/puppet, /opt/puppetlabs/bin/puppet, /etc/puppetlabs/puppet/puppet.conf, /etc/puppetlabs/puppet/ssl/, /opt/puppetlabs/puppet/cache/ or /var/opt/puppetlabs/puppet/cache/, /var/log/puppetlabs/ | puppet; pxp-agent (Puppet Enterprise) | https://help.puppet.com/core/current/ |
+| Chef Infra Client | /opt/chef/bin/chef-client (Chef 18 and earlier), /hab/ (Chef 19, Habitat-packaged; exact path ??), /etc/chef/client.rb, /etc/chef/client.pem, /var/chef/cache/ | chef-client + chef-client.timer (created by the chef_client_systemd_timer resource, not the package) | https://docs.chef.io/client/ |
+| CFEngine | /var/cfengine/bin/cf-agent, /var/cfengine/bin/cf-execd, /var/cfengine/inputs/promises.cf, /var/cfengine/policy_server.dat, /var/cfengine/ppkeys/ | cfengine3, cf-execd, cf-serverd, cf-monitord | https://docs.cfengine.com/docs/lts/ |
+| Ansible Automation Platform / AWX receptor (execution & hop nodes) | /etc/receptor/receptor.conf, /var/run/receptor/receptor.sock (AAP 2.4 and earlier: /var/run/awx-receptor/receptor.sock), /var/log/receptor/receptor.log | receptor | https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/ |
+| ansible-pull | ~/.ansible/pull/\<fqdn\>/ (default checkout), cron entry (site-defined) | (none - usually run from cron) | https://docs.ansible.com/ansible/latest/cli/ansible-pull.html |
 
 ### Vulnerability management, live patching & compliance
 | vendor | files | systemd service name | website |
@@ -356,3 +400,9 @@ Listed so they can be ruled out during triage.
 | Raytheon Cyber (now Forcepoint — Forcepoint One Endpoint has no Linux agent) | [No Linux endpoint agent] | [No Linux endpoint agent] | https://help.forcepoint.com/F1E/en-us/v26/ep_install/ep_install.pdf |
 | Stormshield Endpoint Security (SES Evolution) | [No Linux support - Windows only] | [No Linux support - Windows only] | https://www.stormshield.com/products-services/products/endpoint-protection/stormshield-endpoint-security/ |
 | Blackpoint Cyber CompassOne / SNAP-Defense | [No Linux support - Windows and macOS only] | [No Linux support - Windows and macOS only] | https://blackpointcyber.com/solutions/ |
+| Barracuda RMM (formerly Managed Workplace) | [No Linux agent - Linux monitored agentless via SNMP from Onsite Manager] | [No Linux agent] | https://documentation.campus.barracuda.com/wiki/spaces/BRMM20251/pages/8753937/Device+Manager+and+Support+Assistant+-+Hosted |
+| Rippling device management | [No Linux support - Windows and macOS only] | [No Linux support - Windows and macOS only] | https://www.rippling.com/blog/rippling-mdm-review |
+| Kandji (now Iru) | [No Linux support - Apple, Windows and Android only] | [No Linux support - Apple, Windows and Android only] | https://support.kandji.io/kb/device-requirements |
+| Addigy | [No Linux support - Apple only] | [No Linux support - Apple only] | https://docs.addigy.com/interface/Add_Devices/ |
+| Mosyle | [No Linux support - Apple only] | [No Linux support - Apple only] | https://business.mosyle.com/ |
+| Miradore (cloud MDM; the separate on-premise Miradore Management Suite does have a Linux client) | [No Linux support] | [No Linux support] | https://www.miradore.com/faq/ |
