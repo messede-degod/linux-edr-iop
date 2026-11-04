@@ -272,6 +272,7 @@ Common on shared-hosting and control-panel servers; several of these hook Apache
 | Kaseya VSA 9 (legacy agent) | /opt/Kaseya/\<agent-instance-guid\>/, /opt/Kaseya/\<agent-instance-guid\>/bin/KcsUninstaller, /etc/init.d/kagent* | (SysV init script, kagent*) | https://help.vsa9.kaseya.com/help/Content/VSA/6908.htm |
 | Action1 | /opt/action1/, /var/opt/action1/, /var/log/action1/ | action1_agent | https://www.action1.com/documentation/agent-installation/adding-endpoints-manually/linux/ |
 | Level | /usr/local/bin/level, /var/lib/level/ | Level (unit file Level.service) | https://docs.level.io/en/articles/9926362-linux-install |
+| Nizlo (Linux monitoring preview) | /opt/nizlo-agent/Nizlo.Agent.Linux, /etc/nizlo-agent/environment, /var/lib/nizlo-agent/, /usr/lib/nizlo-agent-updater/launcher-v1.py | nizlo-agent, nizlo-agent-management, nizlo-agent-update-recovery | https://nizlo.com/solutions/linux-rmm |
 | SuperOps | /opt/superopsrmm/ (unverified - from a third-party uninstall script) | ?? | https://support.superops.com/en/articles/8355161-managing-linux-os-devices |
 | Xcitium / ITarian Endpoint Manager Communication Client | /opt/COMODO/, /etc/systemd/system/itsm.service, /run/comodo/ | itsm | https://scripts.xcitium.com/frontend/web/topic/uninstall-endpoint-manager-communication-client-in-linux-devices |
 | Tactical RMM | /usr/local/bin/tacticalagent, /opt/tacticalagent/, /etc/tacticalagent, /var/log/tacticalagent.log, /opt/tacticalmesh/meshagent (bundled MeshCentral agent) | tacticalagent, meshagent | https://docs.tacticalrmm.com/install_agent/ |
